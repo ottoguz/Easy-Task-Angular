@@ -32,7 +32,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/build-angular@npm:^19.2.15":
+"@angular-devkit/build-angular@npm:^19.2.0":
   version: 19.2.15
   resolution: "@angular-devkit/build-angular@npm:19.2.15"
   dependencies:
@@ -254,7 +254,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/cli@npm:^19.2.15":
+"@angular/cli@npm:^19.2.0":
   version: 19.2.15
   resolution: "@angular/cli@npm:19.2.15"
   dependencies:
@@ -4005,8 +4005,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "base-app@workspace:."
   dependencies:
-    "@angular-devkit/build-angular": "npm:^19.2.15"
-    "@angular/cli": "npm:^19.2.15"
+    "@angular-devkit/build-angular": "npm:^19.2.0"
+    "@angular/cli": "npm:^19.2.0"
     "@angular/common": "npm:^19.2.0"
     "@angular/compiler": "npm:^19.2.0"
     "@angular/compiler-cli": "npm:^19.2.0"
