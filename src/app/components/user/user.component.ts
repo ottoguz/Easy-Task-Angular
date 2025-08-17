@@ -9,6 +9,7 @@ import {
   signal 
 } from '@angular/core';
 import { DUMMY_USERS } from '../../../../public/dummy-users';
+import { IUser } from '../../interfaces/user.interface';
 
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 
@@ -20,25 +21,27 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 })
 export class UserComponent {
   //STANDARD APPROACH
-  @Input({required: true})
-  id!: string;
+  // @Input({required: true})
+  // id!: string;
 
-  @Input({required: true})
-  avatar!: string;
+  // @Input({required: true})
+  // avatar!: string;
 
-  @Input({required: true})
-  name!: string;
+  // @Input({required: true})
+  // name!: string;
+  @Input({required: true}) 
+  user!: IUser;
 
   @Output()
   select = new EventEmitter<string>();
 
   get imagePath() {
-    return this.avatar;
+    return this.user.avatar;
   }
 
   onSelectUser() {
-    console.log(`User name: ${this.name}`);
-    this.select.emit(this.id);
+    console.log(`User name: ${this.user.name}`);
+    this.select.emit(this.user.id);
   }
 
   //SIGNAL APPROACH
