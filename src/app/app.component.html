@@ -1,10 +1,35 @@
 <main class="bg-gradient-to-b from-black via-black to-purple-950 h-screen w-screen">
   <div class="w-9/10 h-8 max-w-[50rem] mb-10 mx-auto grid grid-flow-row gap-8">
     <app-header/>
-      <ul class="list-none m-0 p-0 flex gap-2">
+    <div class="flex w-9/10">
+      <ul id="users" class="list-none m-0 mr-5 p-0 flex flex-col gap-2">
         <li>
-          <app-user/>
+          <app-user [id]="users[0].id"
+                    [avatar]="users[0].avatar" 
+                    [name]="users[0].name"
+                    (select)="onSelectUser($event)"/>
+        </li>
+        <li>
+          <app-user [id]="users[1].id"
+                    [avatar]="users[1].avatar" 
+                    [name]="users[1].name"
+                    (select)="onSelectUser($event)"/>
+        </li>
+        <li>
+          <app-user [id]="users[2].id"
+                    [avatar]="users[2].avatar"  
+                    [name]="users[2].name"
+                    (select)="onSelectUser($event)"/>
+        </li>
+        <li>
+          <app-user [id]="users[3].id"
+                    [avatar]="users[3].avatar" 
+                    [name]="users[3].name"
+                    (select)="onSelectUser($event)"/>
         </li>
       </ul>
+      <app-tasks [name]="selectedUser.name"></app-tasks>
+    </div>
   </div>
+    
 <router-outlet />
