@@ -21,14 +21,6 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 })
 export class UserComponent {
   //STANDARD APPROACH
-  // @Input({required: true})
-  // id!: string;
-
-  // @Input({required: true})
-  // avatar!: string;
-
-  // @Input({required: true})
-  // name!: string;
   @Input({required: true}) 
   user!: IUser;
 
