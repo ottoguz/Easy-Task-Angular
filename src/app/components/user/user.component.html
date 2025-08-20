@@ -1,6 +1,6 @@
 <!--STANDARD APPROACH-->
 <div class="rounded-md shadow overflow-hidden max-w-56">
-    <button class="flex w-full min-w-40 items-center gap-2 px-5 py-2 text-left 
+    <button [ngClass]="{'bg-[#9965dd] text-black': selected}" class="flex w-full min-w-40 items-center gap-2 px-5 py-2 text-left 
                  bg-[#433352] text-[#c3b3d1] cursor-pointer hover:bg-[#9965dd] hover:text-[#150722] 
                  active:bg-[#9965dd] active:text-[#150722] [&.active]:bg-[#9965dd] 
                  [&.active]:text-[#150722]"
