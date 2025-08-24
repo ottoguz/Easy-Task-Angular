@@ -1,1 +1,29 @@
-<h2 class="text-2xl flex items-center p-1 font-semibold">{{ name }}</h2>
+@if (isAddingTask) {
+    <app-new-task (cancel)="onCancelAddTask()" (add)="onAddTask($event)"></app-new-task>
+}
+<section class="p-4 rounded-lg max-h-[60vh] overflow-auto bg-[#3a2c54] w-full">
+    <header class="flex justify-between items-start mb-8 gap-4">
+        <h2 class="text-lg md:text-2xl flex items-center p-1 font-semibold">{{ owner }}</h2>
+        <menu class="m-0 p-0 w-full md:w-auto">
+            <button class="cursor-pointer rounded border-none
+                    bg-[#9965dd] hover:bg-[#a565dd] active:bg-[#a565dd] hover:text-black
+                    py-[0.35rem] px-[0.8rem] text-[0.9rem]"
+                    (click)="onStartAddTask()">
+                    Add Task
+            </button>
+        </menu>
+    </header>
+    <ul class="list-none my-4 p-0
+            flex flex-col gap-4 max-h-[50vh]
+            overflow-auto
+        ">
+        @for (task of selectedUserTasks; track task.id) {
+            <li>
+                <app-task [task]="task" 
+                          (complete)="onCompleteTask($event)"
+                ></app-task>
+            </li>
+        }
+    </ul>
+</section>
+

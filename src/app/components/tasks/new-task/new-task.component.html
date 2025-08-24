@@ -1,0 +1,45 @@
+<div class="fixed inset-0 bg-black/90 flex justify-center items-center"
+     (click)="onCancel()">
+    <dialog open 
+            class="w-[90%] max-w-lg bg-[#433352] 
+                   rounded-md shadow-lg overflow-hidden p-4 md:p-8"
+                   (click)="$event.stopPropagation()">
+        <h2 class="m-0 text-[#d0c2e1] text-2xl font-bold mb-4">Add Task</h2>
+        <form (ngSubmit)="onSubmit()">
+            <p class="mb-4">
+                <label for="title" class="block mb-1 font-bold text-sm text-[#ab9ac0]">Title</label>
+                <input type="text" id="title" name="title" 
+                       class="w-full p-1 rounded border 
+                            border-[#ab9ac0] bg-[#d0c2e1] text-gray-800 
+                              focus:outline-none focus:ring-2 focus:ring-[#9c73ca]"
+                              [(ngModel)]="enteredTitle"
+                />
+            </p>
+
+            <p class="mb-4">
+                <label for="summary" class="block mb-1 font-bold text-sm text-[#ab9ac0]">Summary</label>
+                <textarea id="summary" rows="5" name="summary" 
+                          class="w-full p-1 rounded border border-[#ab9ac0] bg-[#d0c2e1] text-gray-800 
+                                focus:outline-none focus:ring-2 focus:ring-[#9c73ca]"
+                          [(ngModel)]="enteredSummary"
+                    >
+                </textarea>
+            </p>
+
+            <p class="mb-4">
+                <label for="due-date" class="block mb-1 font-bold text-sm text-[#ab9ac0]">Due Date</label>
+                <input type="date" id="due-date" name="due-date" 
+                       class="w-full p-1 rounded border border-[#ab9ac0] bg-[#d0c2e1] text-gray-800 
+                              focus:outline-none focus:ring-2 focus:ring-[#9c73ca]"
+                       [(ngModel)]="enteredDate" 
+                />
+            </p>
+
+            <p class="mt-4 flex justify-end gap-1">
+                <button type="button" class="cursor-pointer py-2 px-5 rounded bg-transparent text-[#bdadcf] hover:text-[#d0c2e1]"
+                        (click)="onCancel()">Cancel</button>
+                <button type="submit" class="cursor-pointer py-2 px-5 rounded bg-[#9c73ca] text-white shadow-md transition-all duration-300 ease-in-out hover:bg-[#895cce] hover:shadow-lg">Create</button>
+            </p>
+        </form>
+    </dialog>
+</div>

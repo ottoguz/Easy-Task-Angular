@@ -1,17 +1,23 @@
 <main class="bg-gradient-to-b from-black via-black to-purple-950 h-screen w-screen">
-  <div class="w-9/10 h-8 max-w-[50rem] mb-10 mx-auto grid grid-flow-row gap-8">
-    <app-header/>
+  <div class="w-9/10 h-8 max-w-[60rem] mb-10 mx-auto grid grid-flow-row gap-8 bg-red-300">
+    <div class="w-full">
+      <app-header/>
+    </div>
+    
     <div class="flex w-9/10">
       <ul id="users" class="list-none m-0 mr-5 p-0 flex flex-col gap-2">
         @for (user of users; track user.id) {
           <li>
-            <app-user [user]="user!"
+            <app-user [selected]="user.id === selectedUserId" [user]="user!"
                       (select)="onSelectUser($event)"/>
           </li>
         }
       </ul>
       @if (selectedUser) {
-        <app-tasks [name]="selectedUser.name"/>
+        <div class="w-9/12">
+          <app-tasks [userId]="selectedUser.id" [name]="selectedUser.name"/>
+        </div>
+        
       } @else {
         <p class="text-2xl flex items-start p-1 font-semibold">Select a user to see their tasks</p>
       }

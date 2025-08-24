@@ -10,12 +10,17 @@ import {
 } from '@angular/core';
 import { DUMMY_USERS } from '../../../../public/dummy-users';
 import { IUser } from '../../interfaces/user.interface';
+import { CommonModule } from '@angular/common';
+import { CardComponent } from "../../shared/card/card.component";
 
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 
 @Component({
   selector: 'app-user',
-  imports: [],
+  imports: [
+    CommonModule,
+    CardComponent
+],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })
@@ -23,6 +28,9 @@ export class UserComponent {
   //STANDARD APPROACH
   @Input({required: true}) 
   user!: IUser;
+
+  @Input({required: true})
+  selected!: boolean;
 
   @Output()
   select = new EventEmitter<string>();
