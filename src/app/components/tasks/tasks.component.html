@@ -1,5 +1,5 @@
 @if (isAddingTask) {
-    <app-new-task (cancel)="onCancelAddTask()"></app-new-task>
+    <app-new-task (cancel)="onCancelAddTask()" (add)="onAddTask($event)"></app-new-task>
 }
 <section class="p-4 rounded-lg max-h-[60vh] overflow-auto bg-[#3a2c54] w-full">
     <header class="flex justify-between items-start mb-8 gap-4">
