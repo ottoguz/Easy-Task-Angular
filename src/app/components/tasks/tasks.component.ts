@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { TaskComponent } from "./task/task.component";
 import { INewTask, ITask } from '../../interfaces/task.interface';
 import { NewTaskComponent } from "./new-task/new-task.component";
+import { TasksService } from '../../services/tasks.service';
 
 @Component({
   selector: 'app-tasks',
@@ -13,6 +14,10 @@ import { NewTaskComponent } from "./new-task/new-task.component";
   styleUrl: './tasks.component.scss'
 })
 export class TasksComponent {
+  constructor(
+    private readonly tasksService: TasksService,
+  ) {}
+
   @Input({required: true})
   userId!: string;
 
@@ -20,59 +25,21 @@ export class TasksComponent {
   name!: string;
 
   isAddingTask = false;
-
-  tasks: ITask[] = [
-    {
-      id: 't1',
-      userId: 'u1',
-      title: 'Master Angular',
-      summary: 'Learn Angular from basic to advanced',
-      dueDate: '2025-12-31'
-    },
-    {
-      id: 't2',
-      userId: 'u3',
-      title: 'Build first prototype',
-      summary: 'Build first prototype of an online website',
-      dueDate: '2024-05-31'
-    },
-    {
-      id: 't3',
-      userId: 'u3',
-      title: 'Prepare issue template',
-      summary: 'Prepare and describe an issue template',
-      dueDate: '2024-06-15'
-    }
-  ]
+  tasks: ITask[] = [];
 
   get owner() {
     return `${this.name}'s tasks`;
   }
 
   get selectedUserTasks() {
-    return this.tasks.filter((task) => task.userId === this.userId);
-  }
-
-  onCompleteTask(id: string) {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
+    return this.tasksService.getUserTasks(this.userId);
   }
 
   onStartAddTask() {
     this.isAddingTask = true;
   }
 
-  onCancelAddTask() {
-    this.isAddingTask = false;
-  }
-
-  onAddTask(task: INewTask) {
-    this.tasks.unshift({
-      id: new Date().getTime().toString(),
-      userId: this.userId,
-      title: task.title,
-      summary: task.summary,
-      dueDate: task.date
-    });
+  onCloseAddTask() {
     this.isAddingTask = false;
   }
 }
