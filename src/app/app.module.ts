@@ -7,9 +7,9 @@ import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
 import { TaskComponent } from "./components/tasks/task/task.component";
 import { NewTaskComponent } from "./components/tasks/new-task/new-task.component";
-import { CardComponent } from "./shared/card/card.component";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
+import { SharedModule } from "./shared/shared.module";
 
 
 @NgModule({
@@ -19,7 +19,6 @@ import { CommonModule } from "@angular/common";
         UserComponent,
         TasksComponent,
         TaskComponent,
-        CardComponent,
         NewTaskComponent,
     ],
     bootstrap: [AppComponent],
@@ -27,7 +26,8 @@ import { CommonModule } from "@angular/common";
         BrowserModule, 
         RouterModule,
         FormsModule,
-        CommonModule
+        CommonModule,
+        SharedModule,
     ]
 })
 export class AppModule {
